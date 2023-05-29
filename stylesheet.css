@@ -1,0 +1,142 @@
+:root {
+	--color-primary: #ec7000;
+	--color-primary-lighten: #ffa553;
+	--color-primary-darken: #864000;
+	--color-accent: #007bff;
+	--color-accent-lighten: #66b0ff;
+	--color-accent-darken: #004a99;
+}
+* {
+	box-sizing: border-box;
+	user-select: none;
+}
+img, svg {
+	-webkit-user-drag: none;
+	user-drag: none;
+}
+body {
+	background-image: url("./grass.webp");
+}
+main {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	left: 8px;
+	bottom: 8px;
+}
+figure {
+	position: relative;
+	margin: 0;
+	z-index: 3;
+	filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.5));
+}
+figure img {
+	display: block;
+	width: 120px;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	border-radius: 50%;
+	padding: 8px;
+	background: linear-gradient(to right, var(--color-primary-lighten), var(--color-primary), var(--color-primary-darken));
+}
+figcaption {
+	position: absolute;
+	bottom: 0;
+	right: 8px;
+	border-radius: 50%;
+	padding: 8px;
+	background: linear-gradient(to right, var(--color-primary-lighten), var(--color-primary), var(--color-primary-darken));
+}
+figcaption span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	aspect-ratio: 1/1;
+	color: whitesmoke;
+	background-color: #000;
+	text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000;
+	border-radius: 50%;
+	width: 26px;
+	font-size: 16px;
+	line-height: 0;
+}
+section {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: absolute;
+	left: 50%;
+	width: calc(44px * 4 * 2);
+  height: 100%;
+	padding: 8px 8px 8px 48px;
+	border: 12px solid var(--color-primary);
+	border-radius: 8px;
+	background-color: rgba(32, 32, 32, 0.5);
+	backdrop-filter: blur(5px);
+	box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+}
+section:before {
+	content: "";
+	position: absolute;
+	top: -12px;
+	left: 12px;
+	width: calc(100% - 24px);
+	height: 12px;
+	background: linear-gradient(to right, var(--color-primary), var(--color-primary-lighten), var(--color-primary));
+}
+section:after {
+	content: "";
+	position: absolute;
+	bottom: -12px;
+	left: 12px;
+	width: calc(100% - 24px);
+	height: 12px;
+	background: linear-gradient(to right, var(--color-primary), var(--color-primary-darken), var(--color-primary));
+}
+section article {
+	display: flex;
+	justify-content: space-around;
+}
+section article span {
+	border-radius: 6px;
+	text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000;
+	overflow: hidden;
+}
+section article span label {
+	border: 4px solid;
+  border-image: linear-gradient(var(--color-primary-lighten), var(--color-primary), var(--color-primary-darken)) 1;
+	cursor: pointer;
+}
+mark {
+	display: block;
+	position: relative;
+	background: unset;
+	margin-top: 14px;
+}
+mark span {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: whitesmoke;
+	text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000;
+	font-size: 14px;
+	line-height: 0;
+}
+progress {
+	width: 100%;
+	height: 18px;
+	padding: 2px;
+}
+progress, progress::-webkit-progress-bar {
+	border-radius: 4px;
+	background-color: #000;
+	overflow: hidden;
+}
+progress::-webkit-progress-value {
+	background: linear-gradient(to right, var(--color-accent-darken), var(--color-accent), var(--color-accent-lighten));
+}
+.material-icons {
+	font-size: 36px;
+	color: whitesmoke;
+}
