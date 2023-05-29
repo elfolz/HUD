@@ -10,6 +10,9 @@
 	box-sizing: border-box;
 	user-select: none;
 }
+*:not(.material-icons) {
+	font-family: sans-serif;
+}
 img, svg {
 	-webkit-user-drag: none;
 	user-drag: none;
