@@ -21,11 +21,31 @@ body {
 	background-image: url("./grass.webp");
 }
 main {
+	--width: calc(44px * 4 * 2);
 	position: absolute;
 	display: flex;
 	align-items: center;
-	left: 8px;
-	bottom: 8px;
+	left: 32px;
+	top: calc(100vh - 128px);
+	transition: all 250ms ease-in-out;
+}
+main.hidden {
+	left: calc((var(--width) + 60px) * -1);
+}
+main.hidden figure > span {
+	left: calc(var(--width) + 56px);
+	transform: rotate(180deg) translateY(50%);
+	box-shadow: -6px -6px 6px rgba(0, 0, 0, 0.5);
+}
+main.left-top {
+	top: 8px;
+}
+main.right-top {
+	left: calc(100vw - var(--width) - 60px);
+	top: 8px;
+}
+main.right-bottom {
+	left: calc(100vw - var(--width) - 60px);
 }
 figure {
 	position: relative;
@@ -41,6 +61,7 @@ figure img {
 	border-radius: 50%;
 	padding: 8px;
 	background: linear-gradient(to right, var(--color-primary-lighten), var(--color-primary), var(--color-primary-darken));
+	cursor: grab;
 }
 figcaption {
 	position: absolute;
@@ -63,13 +84,25 @@ figcaption span {
 	font-size: 16px;
 	line-height: 0;
 }
+figure > span {
+	position: absolute;
+	left: -32px;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: all 250ms ease-in-out;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	background-color: rgba(32, 32, 32, 0.5);
+	box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+	z-index: -1;
+}
 section {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	position: absolute;
 	left: 50%;
-	width: calc(44px * 4 * 2);
+	width: var(--width);
   height: 100%;
 	padding: 8px 8px 8px 48px;
 	border: 12px solid var(--color-primary);
@@ -101,12 +134,12 @@ section article {
 	display: flex;
 	justify-content: space-around;
 }
-section article span {
+section article span, figure > span {
 	border-radius: 6px;
 	text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000;
 	overflow: hidden;
 }
-section article span label {
+section article span label, figure > span label {
 	border: 4px solid;
   border-image: linear-gradient(var(--color-primary-lighten), var(--color-primary), var(--color-primary-darken)) 1;
 	cursor: pointer;
